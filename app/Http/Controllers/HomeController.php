@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -14,15 +13,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        if(Auth::check() && Auth::user()->usertype == 'admin')
-        {
-            $this->redirectTo = route('dashboard');
-        }
-        else
-        {
-            $this->redirectTo = route('products');
-        }
-
         $this->middleware('auth');
     }
 
@@ -33,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('products.index');
+        return view('home');
     }
 }

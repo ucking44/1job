@@ -39,3 +39,7 @@ Route::get('products/create', 'ProductController@create')->name('products.create
 Route::post('products/store', 'ProductController@store')->name('products.store');
 Route::get('products/front', 'ProductController@front')->name('products.front');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
